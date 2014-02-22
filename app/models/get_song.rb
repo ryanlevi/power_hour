@@ -34,7 +34,7 @@ class GetSong
         @all_songs.push song
       end
     end
-    if @all_songs.length == limit + 1
+    if @all_songs.length == limit
       x = Queries.new
       x.query = query
       x.save
