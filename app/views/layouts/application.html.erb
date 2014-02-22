@@ -24,7 +24,7 @@ p
 <div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="/">Power Hour</a>
-        <ul>
+            <ul>
         	<% if params[:action] == 'index' %>
             <li class="pure-menu-selected"><a href="/">Home</a></li>
             <% else %>
@@ -40,6 +40,11 @@ p
             <% else %>
             <li><a href="/about">About</a></li>
             <% end %>
+        </ul>
+        <ul>
+        	<form action="/playlist">
+              <input type="search" name="query">
+            <button class="pure-button" type="submit">New Playlist</form>
         </ul>
     </div>
 </div>

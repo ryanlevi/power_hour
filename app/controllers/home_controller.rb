@@ -1,10 +1,16 @@
 class HomeController < ApplicationController
-  def index
+  @artists = ["kanye west", "alicia keys", "beyonce", "sublime", "kendrick lamar"]
 
+  def index
   end
 
   def show
-    @song = GetSong.new(params[:query])
+    if params[:query] != ''
+      @song = GetSong.new(params[:query])
+    else
+      @artists = ["kanye west", "alicia keys", "beyonce", "sublime", "kendrick lamar"]
+      @song = GetSong.new(@artists[rand(@artists.length-1)])
+    end
     @similar = @song.get_similar(19)
   end
 
@@ -12,8 +18,8 @@ class HomeController < ApplicationController
   end
 
   def random
-    artists = ["kanye west", "alicia keys", "beyonce", "sublime", "kendrick lamar"]
-    @song = GetSong.new(artists[rand(artists.length-1)])
+    @artists = ["kanye west", "alicia keys", "beyonce", "sublime", "kendrick lamar"]
+    @song = GetSong.new(@artists[rand(@artists.length-1)])
     @similar = @song.get_similar(19)
     render 'show'
   end
