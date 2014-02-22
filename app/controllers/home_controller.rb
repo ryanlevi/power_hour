@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def show
     @song = GetSong.new(params[:query])
-    @similar = @song.get_similar(59)
+    @similar = @song.get_similar(19)
   end
 
   def about
@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   def random
     artists = ["kanye west", "alicia keys", "beyonce", "sublime", "kendrick lamar"]
     @song = GetSong.new(artists[rand(artists.length-1)])
-    @similar = @song.get_similar(59)
+    @similar = @song.get_similar(19)
     render 'show'
   end
 end
