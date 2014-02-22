@@ -3,12 +3,22 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+# API wrappers
 gem 'itunes-search-api'
 gem 'lastfm'
-gem 'debugger'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use posgres as the database for Active Record and thin for production (heroku)
+group :production do
+  gem 'pg'
+  gem 'thin'
+  gem 'rails_12factor'
+end
+
+# Use sqlite3 as the database for Active Record in dev and test
+gem 'sqlite3', group: [:development, :test]
+
+# use debugger only in test and dev
+gem 'debugger', group: [:development, :test]
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -36,14 +46,4 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+ruby "2.0.0"
