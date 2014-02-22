@@ -1,6 +1,6 @@
-== README
+= README
 
 Lookup a song and a 60 song playlist is created.
 
-= Known Issues
+== Known Issues
 We're probably going to have to embrace this, but iTunes API only allows 30 second prewiews so it is unlikely that we will be able to have a full version of Power Hour, but rather a more intense power half-hour.

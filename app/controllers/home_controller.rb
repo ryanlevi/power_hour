@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @m4a = ITunesSearchAPI.search(:term => "#{params[:query]}", :country => "US", :media => "music")[0]["previewUrl"]
+
   end
+
+  def show
+    @song = GetSong.new(params[:query])
+  end
+
 end
