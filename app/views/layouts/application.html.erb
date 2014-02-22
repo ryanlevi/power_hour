@@ -18,10 +18,33 @@ p
 }
 </style>
 <body>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+<link rel="stylesheet" href="http://purecss.io/combo/1.11.2?/css/main-grid.css&/css/layouts/marketing.css">
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/">Power Hour</a>
+        <ul>
+        	<% if params[:action] == 'index' %>
+            <li class="pure-menu-selected"><a href="/">Home</a></li>
+            <% else %>
+            <li><a href="/">Home</a></li>
+            <% end %>
+            <% if params[:action] == 'random' %>
+            <li class="pure-menu-selected"><a href="/random">Random</a></li>
+            <% else %>
+            <li><a href="/random">Random</a></li>
+            <% end %>
+            <% if params[:action] == 'about' %>
+            <li class="pure-menu-selected"><a href="/about">About</a></li>
+            <% else %>
+            <li><a href="/about">About</a></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
 
 <%= yield %>
-
+</div>
 </body>
 </html>
-<p>Music player from http://www.codebasehero.com/2011/07/html5-music-player-updated/
-</p>
