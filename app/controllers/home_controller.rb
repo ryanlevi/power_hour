@@ -8,8 +8,7 @@ class HomeController < ApplicationController
     if params[:query] != ''
       @song = GetSong.new(params[:query])
     else
-      @artists = ["kanye west", "alicia keys", "beyonce", "sublime", "kendrick lamar"]
-      @song = GetSong.new(@artists[rand(@artists.length-1)])
+      @song = GetSong.new(Queries.offset(rand(Queries.count)).first)
     end
     @similar = @song.get_similar(19)
   end
@@ -18,8 +17,7 @@ class HomeController < ApplicationController
   end
 
   def random
-    @artists = ["kanye west", "alicia keys", "beyonce", "sublime", "kendrick lamar"]
-    @song = GetSong.new(@artists[rand(@artists.length-1)])
+    @song = GetSong.new(Queries.offset(rand(Queries.count)).first)
     @similar = @song.get_similar(19)
     render 'show'
   end
