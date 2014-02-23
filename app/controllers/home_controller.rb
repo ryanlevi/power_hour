@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     else
       @song = GetSong.new(Queries.offset(rand(Queries.count)).first.query)
     end
-    @similar = @song.get_similar(@limit - 1)
+    @similar = @song.get_similar(59)
   end
 
   def about
@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 
   def random
     @song = GetSong.new(Queries.offset(rand(Queries.count)).first.query)
-    @similar = @song.get_similar(@limit - 1)
+    @similar = @song.get_similar(59)
     render 'show'
   end
 

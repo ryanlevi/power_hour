@@ -29,6 +29,7 @@ class GetSong
     lastfm = Lastfm.new(api_key, api_secret)
     token = lastfm.auth.get_token
     @all_songs = []
+    debugger
     lastfm.track.get_similar(artist: @artist, track: @title, limit: limit.to_s).each do |track|
       song = GetSong.new "#{track["artist"]["name"]} #{track["name"]}"
       if song.search_results.length != 0

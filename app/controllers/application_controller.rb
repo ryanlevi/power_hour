@@ -3,11 +3,4 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   private
-  def limit
-    if session[:user][:limit]
-      @limit = session[:user][:limit]
-     else 
-      @limit = 60
-    end
-  end
 end
