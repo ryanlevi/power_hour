@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   private
   def limit
-  	if session[:user][:limit]
+    if session[:user][:limit]
       @limit ||= session[:user][:limit]
      else 
       @limit = 60
     end
+  end
 end
