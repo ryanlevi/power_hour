@@ -16,7 +16,6 @@ class HomeController < ApplicationController
   end
 
   def random
-    debugger
     @song = GetSong.new(Queries.offset(rand(Queries.count)).first.query)
     @similar = @song.get_similar(19)
     render 'show'

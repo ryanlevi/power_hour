@@ -35,12 +35,12 @@ class GetSong
       end
     end
     if @all_songs.length == limit
-      y = false
+      y = true
       Queries.all.each do |q|
-        if y = true
+        if y = false
           next
         elsif q.query == query
-          y = true
+          y = false
         end
       end
       if y
