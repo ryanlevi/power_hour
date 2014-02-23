@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def show
-    unless session[:user][:limit]
+    unless session and session[:user][:limit]
       session[:user] = { :limit => 60 }
     end
     if params[:query] != ''
