@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
   def limit
     if session[:user][:limit]
-      @limit ||= session[:user][:limit]
+      @limit = session[:user][:limit]
      else 
       @limit = 60
     end
