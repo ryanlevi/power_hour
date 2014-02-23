@@ -35,9 +35,19 @@ class GetSong
       end
     end
     if @all_songs.length == limit
-      x = Queries.new
-      x.query = query
-      x.save
+      y = false
+      Queries.all.each do |q|
+        if y = true
+          next
+        elsif q.query == query
+          y = true
+        end
+      end
+      if y
+        x = Queries.new
+        x.query = query
+        x.save
+      end
     end
     @all_songs
   end
