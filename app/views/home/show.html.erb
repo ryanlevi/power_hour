@@ -1,35 +1,33 @@
-    <script type="text/javascript">
-    var myPlaylist = [
-    {
-        mp3:"<%= @song.m4a %>",
-        title:"<%= @song.title %>",
-        artist:"<%= @song.artist %>",
-        buy:'<%= @song.url %>',
-        price:'<%= @song.price %>',
-        duration:'0:30',
-        cover:"<%= @song.jpg %>"
-    },
-    <% @similar.each do |song| %>
-    {
-    	mp3:"<%= song.m4a %>",
-        title:"<%= song.title %>",
-        artist:"<%= song.artist %>",
-        buy:'<%= song.url %>',
-        price:'<%= song.price %>',
-        duration:'0:30',
-        cover:"<%= song.jpg %>"
-    },
-	<% end %>
+<script type="text/javascript">
+var myPlaylist = [
+{
+    mp3:"<%= @song.m4a %>",
+    title:"<%= @song.title %>",
+    artist:"<%= @song.artist %>",
+    buy:'<%= @song.url %>',
+    price:'<%= @song.price %>',
+    duration:'0:30',
+    cover:"<%= @song.jpg %>"
+},
+<% @similar.each do |song| %>
+{
+    mp3:"<%= song.m4a %>",
+    title:"<%= song.title %>",
+    artist:"<%= song.artist %>",
+    buy:'<%= song.url %>',
+    price:'<%= song.price %>',
+    duration:'0:30',
+    cover:"<%= song.jpg %>"
+},
+<% end %>
 ];
-        $(document).ready(function(){
-            var description = '';
-
-            $('body').ttwMusicPlayer(myPlaylist, {
-                autoplay:true, 
-                description:description,
-                jPlayer:{
-                    swfPath:'/jquery-jplayer'
-                }
-            });
+    $(document).ready(function(){
+        $('body').ttwMusicPlayer(myPlaylist, {
+            autoplay:true, 
+            description:'',
+            jPlayer:{
+                swfPath:'/jquery-jplayer'
+            }
         });
-    </script>
+    });
+</script>

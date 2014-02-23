@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def show
-    session[:user] = { :limit => 60 } unless session[:user][:limit]
+    unless session[:user][:limit] session[:user] = { :limit => 60 }
     if params[:query] != ''
       @song = GetSong.new(params[:query])
     else
@@ -17,14 +17,14 @@ class HomeController < ApplicationController
   end
 
   def random
-    session[:user] = { :limit => 60 } unless session[:user][:limit]
+    unless session[:user][:limit] session[:user] = { :limit => 60 }
     @song = GetSong.new(Queries.offset(rand(Queries.count)).first.query)
     @similar = @song.get_similar(session[:user][:limit].to_i - 1)
     render 'show'
   end
 
   def settings
-    session[:user] = { :limit => 60 } unless session[:user][:limit]
+    unless session[:user][:limit] session[:user] = { :limit => 60 }
     if params[:limit]
       session[:user] = { :limit => params[:limit] }
     end
