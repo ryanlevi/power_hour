@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
 </head>
 <style>
 body
@@ -13,19 +15,20 @@ background-image:url('/images/bg.jpg');
 }
 p
 {
-	color:white;
-	font-family: Arial, Helvetica, sans-serif;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 </style>
 <body>
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
 <link rel="stylesheet" href="http://purecss.io/combo/1.11.2?/css/main-grid.css&/css/layouts/marketing.css">
+
 
 <div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="/">Power Hour</a>
             <ul>
-        	<% if params[:action] == 'index' %>
+            <% if params[:action] == 'index' %>
             <li class="pure-menu-selected"><a href="/">Home</a></li>
             <% else %>
             <li><a href="/">Home</a></li>
@@ -40,9 +43,10 @@ p
             <% else %>
             <li><a href="/about">About</a></li>
             <% end %>
+            <li><a href="/settings"><i class="fa fa-cogs fa-fw"></i></a></li>
         </ul>
         <ul>
-        	<form action="/playlist">
+            <form action="/playlist">
               <input type="search" name="query">
             <button class="pure-button" style="padding: 8px;" type="submit">New Playlist</form>
         </ul>

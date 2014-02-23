@@ -23,6 +23,7 @@ class GetSong
   end
 
   def get_similar(limit)
+    return [] if limit == 0
     api_key = GetApiKeys.new.api_key
     api_secret = GetApiKeys.new.api_secret
     lastfm = Lastfm.new(api_key, api_secret)
@@ -37,7 +38,7 @@ class GetSong
     if @all_songs.length == limit
       y = true
       Queries.all.each do |q|
-        if y = false
+        if y == false
           next
         elsif q.query == query
           y = false
