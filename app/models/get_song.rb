@@ -31,7 +31,7 @@ class GetSong
     @all_songs = []
     if lastfm.track.get_similar(artist: @artist, track: @title, limit: limit.to_s).class() == Array
       lastfm.track.get_similar(artist: @artist, track: @title, limit: limit.to_s).each do |track|
-        song = GetSong.new "#{track["artist"]["name"]} #{track["name"]}"
+        song = GetSong.new "#{track["artist"]["name"]} #{track["name"].gsub(/\(.*\)/, "").rstrip}"
         if song.search_results.length != 0
           @all_songs.push song
         end
