@@ -7,7 +7,7 @@ class GetSong
   def initialize(query)
     @query = query
     if @query != ""
-      @search_results = ITunesSearchAPI.search(:term => "#{@query}", :country => "US", :media => "music")
+      @search_results = ITunesSearchAPI.search(:term => "#{@query}", :country => "US", :media => "music", :limit => "1")
     end
     if @search_results
       @first_result = @search_results[0]

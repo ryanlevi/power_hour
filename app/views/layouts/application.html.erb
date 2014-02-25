@@ -43,7 +43,11 @@ p
             <% else %>
             <li><a href="/about">About</a></li>
             <% end %>
+            <% if params[:action] == 'settings' %>
+            <li class="pure-menu-selected"><a href="/settings"><i class="fa fa-cogs fa-fw"></i></a></li>
+            <% else %>
             <li><a href="/settings"><i class="fa fa-cogs fa-fw"></i></a></li>
+            <% end %>
         </ul>
         <ul>
             <form action="/playlist">
