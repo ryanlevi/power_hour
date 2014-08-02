@@ -1,9 +1,9 @@
 <script type="text/javascript">
 var myPlaylist = [
 {
-    mp3:"<%= @song.m4a %>",
-    title:"<%= @song.title %>",
-    artist:"<%= @song.artist %>",
+    oga:'<%= @song.m4a %>',
+    title:'<%= @song.title %>',
+    artist:'<%= @song.artist %>',
     buy:'<%= @song.url %>',
     price:'<%= @song.price %>',
     duration:'0:30',
@@ -11,9 +11,9 @@ var myPlaylist = [
 },
 <% @similar.each do |song| %>
 {
-    mp3:"<%= song.m4a %>",
-    title:"<%= song.title %>",
-    artist:"<%= song.artist %>",
+    oga:'<%= song.m4a %>',
+    title:'<%= song.title %>',
+    artist:'<%= song.artist %>',
     buy:'<%= song.url %>',
     price:'<%= song.price %>',
     duration:'0:30',
